@@ -32,11 +32,11 @@ namespace Extensions
             List<string> Defeated = new List<string>();
             if (NPC.downedBoss1)
             {
-                Defeated.Add("cthulu:1");
+                Defeated.Add("cthulhu:1");
                 {
-                    if (Defeated.Contains("cthulu:0"))
+                    if (Defeated.Contains("cthulhu:0"))
                     {
-                        Defeated.Remove("cthulu:0");
+                        Defeated.Remove("cthulhu:0");
                     }
                 }
             }
