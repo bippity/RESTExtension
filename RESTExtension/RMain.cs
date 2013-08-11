@@ -10,6 +10,7 @@ using Hooks;
 using System.IO;
 using Terraria;
 using System.Reflection;
+using Extensions;
 
 namespace RESTExtension
 {
@@ -51,8 +52,8 @@ namespace RESTExtension
 
         public void OnInit()
         {
-            TShock.RestApi.Register(new RestCommand("/tshock/info", TI.TShockInfo));
-            TShock.RestApi.Register(new RestCommand("/world/info", WI.WorldInfo));
+            TShock.RestApi.Register(new RestCommand("/ext/tshock/info", TI.TShockInfo));
+            TShock.RestApi.Register(new RestCommand("/ext/world/info", WI.WorldInfo));
         }
     }
 }

@@ -10,8 +10,9 @@ using Hooks;
 using System.IO;
 using Terraria;
 using System.Reflection;
+using RESTExtension;
 
-namespace RESTExtension
+namespace Extensions
 {
     public class TI
     {
