@@ -6,7 +6,8 @@ using TShockAPI.Extensions;
 using TShockAPI;
 using Rests;
 using HttpServer;
-using Hooks;
+//using Hooks;
+using TShockAPI.Hooks;
 using System.IO;
 using Terraria;
 using System.Reflection;
@@ -26,7 +27,8 @@ namespace Extensions
             else
             {
                 RMain.usingservername = false;
-                RMain.tsservername = TShock.Config.ServerNickname;
+                //RMain.tsservername = TShock.Config.ServerNickname;
+                RMain.tsservername = TShock.Config.ServerName;
             }
 
             List<string> Defeated = new List<string>();
