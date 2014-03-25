@@ -6,7 +6,6 @@ using TShockAPI.Extensions;
 using TShockAPI;
 using Rests;
 using HttpServer;
-//using Hooks;
 using TShockAPI.Hooks;
 using System.IO;
 using Terraria;
@@ -67,6 +66,17 @@ namespace Extensions
             else
                 Defeated.Add("skeletron:0");
 
+            if (NPC.downedQueenBee)
+            {
+                Defeated.Add("bee:1");
+                if (Defeated.Contains("bee:0"))
+                {
+                    Defeated.Remove("bee:0");
+                }
+            }
+            else
+                Defeated.Add("bee:0");
+
             if (NPC.downedGoblins)
             {
                 Defeated.Add("goblins:1");
@@ -77,6 +87,7 @@ namespace Extensions
             }
             else
                 Defeated.Add("goblins:0");
+
             if (NPC.downedFrost)
             {
                 Defeated.Add("frost:1");
@@ -87,6 +98,18 @@ namespace Extensions
             }
             else
                 Defeated.Add("frost:0");
+
+            if (NPC.downedPirates)
+            {
+                Defeated.Add("pirates:1");
+                {
+                    if (Defeated.Contains("pirates:0"))
+                        Defeated.Remove("pirates:0");
+                }
+            }
+            else
+                Defeated.Add("pirates:0");
+
             if (NPC.downedClown)
             {
                 Defeated.Add("clown:1");
@@ -97,6 +120,72 @@ namespace Extensions
             }
             else
                 Defeated.Add("clown:0");
+
+            if (NPC.downedPlantBoss)
+            {
+                Defeated.Add("plantera:1");
+                {
+                    if (Defeated.Contains("plantera:0"))
+                        Defeated.Remove("plantera:0");
+                }
+            }
+            else
+                Defeated.Add("plantera:0");
+
+            if (NPC.downedGolemBoss)
+            {
+                Defeated.Add("golem:1");
+                {
+                    if (Defeated.Contains("golem:0"))
+                        Defeated.Remove("golem:0");
+                }
+            }
+            else
+                Defeated.Add("golem:0");
+
+            if (NPC.downedMechBossAny) //what boss...
+            {
+                Defeated.Add("mechboss:1");
+                {
+                    if (Defeated.Contains("mechboss:0"))
+                        Defeated.Remove("mechbos:0");
+                }
+            }
+            else
+                Defeated.Add("mechboss:0");
+
+             if (NPC.downedMechBoss1)
+            {
+                Defeated.Add("destroyer:1");
+                {
+                    if (Defeated.Contains("destroyer:0"))
+                        Defeated.Remove("destroyer:0");
+                }
+            }
+            else
+                Defeated.Add("destroyer:0");
+
+             if (NPC.downedMechBoss2)
+            {
+                Defeated.Add("skeletronprime:1");
+                {
+                    if (Defeated.Contains("skeletronprime:0"))
+                        Defeated.Remove("skeletronprime:0");
+                }
+            }
+            else
+                Defeated.Add("skeletronprime:0");
+
+             if (NPC.downedMechBoss3)
+            {
+                Defeated.Add("twins:1");
+                {
+                    if (Defeated.Contains("twins:0"))
+                        Defeated.Remove("twins:0");
+                }
+            }
+            else
+                Defeated.Add("twins:0");
 
             string defeated = "";
 

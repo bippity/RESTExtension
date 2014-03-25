@@ -6,7 +6,6 @@ using TShockAPI.Extensions;
 using TShockAPI;
 using Rests;
 using HttpServer;
-//using Hooks;
 using TShockAPI.Hooks;
 using System.IO;
 using Terraria;
@@ -36,7 +35,6 @@ namespace Extensions
                 {"maxspawns", TShock.Config.DefaultMaximumSpawns},
                 {"spawnrate", TShock.Config.DefaultSpawnRate},
                 {"chatoverhead", TShock.Config.EnableChatAboveHeads},
-               // {"ssi", TShock.Config.ServerSideInventory},
                 {"ssc", TShock.Config.ServerSideCharacterSave},
                 {"protectedbuild", TShock.Config.DisableBuild},
                 {"christmas", TShock.Config.ForceXmas}
