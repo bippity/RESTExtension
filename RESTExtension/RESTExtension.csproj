@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HttpServer">
-      <HintPath>..\..\Tshock Refs\HttpServer.dll</HintPath>
+      <HintPath>..\..\TShock\TShockAPI\bin\Release\HttpServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -42,10 +42,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="TerrariaServer">
-      <HintPath>..\..\Tshock Refs\TerrariaServer.exe</HintPath>
+      <HintPath>..\..\TShock\TShockAPI\bin\Release\TerrariaServer.exe</HintPath>
     </Reference>
     <Reference Include="TShockAPI">
-      <HintPath>..\..\Tshock Refs\TShockAPI.dll</HintPath>
+      <HintPath>..\..\TShock\TShockAPI\bin\Release\TShockAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
