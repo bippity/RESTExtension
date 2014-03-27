@@ -6,7 +6,7 @@ using TShockAPI.Extensions;
 using TShockAPI;
 using Rests;
 using HttpServer;
-using Hooks;
+using TShockAPI.Hooks;
 using System.IO;
 using Terraria;
 using System.Reflection;
@@ -26,7 +26,8 @@ namespace Extensions
             else
             {
                 RMain.usingservername = false;
-                RMain.tsservername = TShock.Config.ServerNickname;
+                //RMain.tsservername = TShock.Config.ServerNickname;
+                RMain.tsservername = TShock.Config.ServerName;
             }
 
             List<string> Defeated = new List<string>();
@@ -65,36 +66,126 @@ namespace Extensions
             else
                 Defeated.Add("skeletron:0");
 
+            if (NPC.downedQueenBee)
+            {
+                Defeated.Add("bee:1");
+                if (Defeated.Contains("bee:0"))
+                {
+                    Defeated.Remove("bee:0");
+                }
+            }
+            else
+                Defeated.Add("bee:0");
+
             if (NPC.downedGoblins)
             {
                 Defeated.Add("goblins:1");
+                if (Defeated.Contains("goblins:0"))
                 {
-                    if (Defeated.Contains("goblins:0"))
-                        Defeated.Remove("goblins:0");
+                    Defeated.Remove("goblins:0");
                 }
             }
             else
                 Defeated.Add("goblins:0");
+
             if (NPC.downedFrost)
             {
                 Defeated.Add("frost:1");
+                if (Defeated.Contains("frost:0"))
                 {
-                    if (Defeated.Contains("frost:0"))
-                        Defeated.Remove("frost:0");
+                    Defeated.Remove("frost:0");
                 }
             }
             else
                 Defeated.Add("frost:0");
+
+            if (NPC.downedPirates)
+            {
+                Defeated.Add("pirates:1");
+                if (Defeated.Contains("pirates:0"))
+                {
+                    Defeated.Remove("pirates:0");
+                }
+            }
+            else
+                Defeated.Add("pirates:0");
+
             if (NPC.downedClown)
             {
                 Defeated.Add("clown:1");
+                if (Defeated.Contains("clown:0"))
                 {
-                    if (Defeated.Contains("clown:0"))
-                        Defeated.Remove("clown:0");
+                    Defeated.Remove("clown:0");
                 }
             }
             else
                 Defeated.Add("clown:0");
+
+            if (NPC.downedPlantBoss)
+            {
+                Defeated.Add("plantera:1");
+                if (Defeated.Contains("plantera:0"))
+                {
+                    Defeated.Remove("plantera:0");
+                }
+            }
+            else
+                Defeated.Add("plantera:0");
+
+            if (NPC.downedGolemBoss)
+            {
+                Defeated.Add("golem:1");
+                if (Defeated.Contains("golem:0"))
+                {
+                    Defeated.Remove("golem:0");
+                }
+            }
+            else
+                Defeated.Add("golem:0");
+
+            if (NPC.downedMechBossAny) //what boss...
+            {
+                Defeated.Add("mechboss:1");
+                if (Defeated.Contains("mechboss:0"))
+                {
+                    Defeated.Remove("mechbos:0");
+                }
+            }
+            else
+                Defeated.Add("mechboss:0");
+
+             if (NPC.downedMechBoss1)
+            {
+                Defeated.Add("destroyer:1");
+                    if (Defeated.Contains("destroyer:0"))
+                    {
+                        Defeated.Remove("destroyer:0");
+                    }
+            }
+            else
+                Defeated.Add("destroyer:0");
+
+             if (NPC.downedMechBoss2)
+            {
+                Defeated.Add("skeletronprime:1");
+                if (Defeated.Contains("skeletronprime:0"))
+                {
+                    Defeated.Remove("skeletronprime:0");
+                }
+            }
+            else
+                Defeated.Add("skeletronprime:0");
+
+             if (NPC.downedMechBoss3)
+            {
+                Defeated.Add("twins:1");
+                if (Defeated.Contains("twins:0"))
+                {
+                    Defeated.Remove("twins:0");
+                }
+            }
+            else
+                Defeated.Add("twins:0");
 
             string defeated = "";
 
@@ -109,6 +200,66 @@ namespace Extensions
                     defeated += ", " + s;
                 }
             }
+
+            List<string> Found = new List<string>();
+            if (NPC.savedGoblin)
+            {
+                Found.Add("savedgoblin:1");
+                if (Found.Contains("savedgoblin:0"))
+                {
+                    Found.Remove("savedgoblin:0");
+                }
+            }
+            else
+                Found.Add("savedgoblin:0");
+
+            if (NPC.savedWizard)
+            {
+                Found.Add("savedwizard:1");
+                if (Found.Contains("savedwizard:0"))
+                {
+                    Found.Remove("savedwizard:0");
+                }
+            }
+            else
+                Found.Add("savedwizard:0");
+
+            if (NPC.savedMech)
+            {
+                Found.Add("savedmech:1");
+                if (Found.Contains("savedmech:0"))
+                {
+                    Found.Remove("savedmech:0");
+                }
+            }
+            else
+                Found.Add("savedmech:0");
+
+            if (NPC.savedStylist)
+            {
+                Found.Add("savedstylist:1");
+                if (Found.Contains("savedstylist:0"))
+                {
+                    Found.Remove("savedstylist:0");
+                }
+            }
+            else
+                Found.Add("savedstylist:0");
+
+            string found = "";
+
+            foreach (string s in Found)
+            {
+                if (found.Length == 0)
+                {
+                    found += s;
+                }
+                else if (found.Length > 0)
+                {
+                    found += ", " + s;
+                }
+            }
+ 
 
             List<string> Mobs = new List<string>();
             string mobs = "";

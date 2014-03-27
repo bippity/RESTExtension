@@ -6,7 +6,7 @@ using TShockAPI.Extensions;
 using TShockAPI;
 using Rests;
 using HttpServer;
-using Hooks;
+using TShockAPI.Hooks;
 using System.IO;
 using Terraria;
 using System.Reflection;
@@ -25,7 +25,7 @@ namespace Extensions
             return new RestObject()
             {
                 {"servername", TShock.Config.ServerName},
-                {"servernickname", TShock.Config.ServerNickname},
+                //{"servernickname", TShock.Config.ServerNickname},//doesn't exist?
                 {"password", TShock.Config.ServerPassword},
                 {"port", TShock.Config.ServerPort},
                 {"maxslots", TShock.Config.MaxSlots},
@@ -35,7 +35,7 @@ namespace Extensions
                 {"maxspawns", TShock.Config.DefaultMaximumSpawns},
                 {"spawnrate", TShock.Config.DefaultSpawnRate},
                 {"chatoverhead", TShock.Config.EnableChatAboveHeads},
-                {"ssi", TShock.Config.ServerSideInventory},
+                {"ssc", TShock.Config.ServerSideCharacterSave},
                 {"protectedbuild", TShock.Config.DisableBuild},
                 {"christmas", TShock.Config.ForceXmas}
             };

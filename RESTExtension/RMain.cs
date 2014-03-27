@@ -6,15 +6,16 @@ using TShockAPI.Extensions;
 using TShockAPI;
 using Rests;
 using HttpServer;
-using Hooks;
+using TShockAPI.Hooks;
 using System.IO;
 using Terraria;
+using TerrariaApi.Server;
 using System.Reflection;
 using Extensions;
 
 namespace RESTExtension
 {
-    [APIVersion(1, 13)]
+    [ApiVersion(1, 15)]
     public class RMain : TerrariaPlugin
     {
         public static bool usingservername = false;
@@ -35,13 +36,16 @@ namespace RESTExtension
         protected override void Dispose(bool disposing)
         {
             if (disposing)
-                GameHooks.Initialize -= OnInit;
+            {
+                ServerApi.Hooks.GameInitialize.Deregister(this, OnInit); 
+            }
+                
             base.Dispose(disposing);
         }
 
         public override void Initialize()
         {
-            GameHooks.Initialize += OnInit;
+            ServerApi.Hooks.GameInitialize.Register(this, OnInit);
         }
 
         public RMain(Main game)
@@ -50,7 +54,7 @@ namespace RESTExtension
             Order = 1;
         }
 
-        public void OnInit()
+        public void OnInit(EventArgs args)
         {
             TShock.RestApi.Register(new RestCommand("/ext/tshock/info", TI.TShockInfo));
             TShock.RestApi.Register(new RestCommand("/ext/world/info", WI.WorldInfo));
