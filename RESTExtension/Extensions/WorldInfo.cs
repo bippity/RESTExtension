@@ -26,20 +26,15 @@ namespace Extensions
             else
             {
                 RMain.usingservername = false;
-                //RMain.tsservername = TShock.Config.ServerNickname;
-                RMain.tsservername = TShock.Config.ServerName;
+                RMain.tsservername = Main.worldName;
             }
 
             List<string> Defeated = new List<string>();
             if (NPC.downedBoss1)
             {
                 Defeated.Add("cthulhu:1");
-                {
-                    if (Defeated.Contains("cthulhu:0"))
-                    {
-                        Defeated.Remove("cthulhu:0");
-                    }
-                }
+                if (Defeated.Contains("cthulhu:0"))
+                    Defeated.Remove("cthulhu:0");
             }
             else
                 Defeated.Add("cthulu:0");
@@ -48,9 +43,7 @@ namespace Extensions
             {
                 Defeated.Add("eater:1");
                 if (Defeated.Contains("eater:0"))
-                {
                     Defeated.Remove("eater:0");
-                }
             }
             else
                 Defeated.Add("eater:0");
@@ -59,9 +52,7 @@ namespace Extensions
             {
                 Defeated.Add("skeletron:1");
                 if (Defeated.Contains("skeletron:0"))
-                {
                     Defeated.Remove("skeletron:0");
-                }
             }
             else
                 Defeated.Add("skeletron:0");
@@ -70,9 +61,7 @@ namespace Extensions
             {
                 Defeated.Add("bee:1");
                 if (Defeated.Contains("bee:0"))
-                {
                     Defeated.Remove("bee:0");
-                }
             }
             else
                 Defeated.Add("bee:0");
@@ -81,9 +70,7 @@ namespace Extensions
             {
                 Defeated.Add("goblins:1");
                 if (Defeated.Contains("goblins:0"))
-                {
                     Defeated.Remove("goblins:0");
-                }
             }
             else
                 Defeated.Add("goblins:0");
@@ -92,9 +79,7 @@ namespace Extensions
             {
                 Defeated.Add("frost:1");
                 if (Defeated.Contains("frost:0"))
-                {
                     Defeated.Remove("frost:0");
-                }
             }
             else
                 Defeated.Add("frost:0");
@@ -103,9 +88,7 @@ namespace Extensions
             {
                 Defeated.Add("pirates:1");
                 if (Defeated.Contains("pirates:0"))
-                {
                     Defeated.Remove("pirates:0");
-                }
             }
             else
                 Defeated.Add("pirates:0");
@@ -114,9 +97,7 @@ namespace Extensions
             {
                 Defeated.Add("clown:1");
                 if (Defeated.Contains("clown:0"))
-                {
                     Defeated.Remove("clown:0");
-                }
             }
             else
                 Defeated.Add("clown:0");
@@ -125,9 +106,7 @@ namespace Extensions
             {
                 Defeated.Add("plantera:1");
                 if (Defeated.Contains("plantera:0"))
-                {
                     Defeated.Remove("plantera:0");
-                }
             }
             else
                 Defeated.Add("plantera:0");
@@ -136,31 +115,16 @@ namespace Extensions
             {
                 Defeated.Add("golem:1");
                 if (Defeated.Contains("golem:0"))
-                {
                     Defeated.Remove("golem:0");
-                }
             }
             else
                 Defeated.Add("golem:0");
-
-            if (NPC.downedMechBossAny) //what boss...
-            {
-                Defeated.Add("mechboss:1");
-                if (Defeated.Contains("mechboss:0"))
-                {
-                    Defeated.Remove("mechbos:0");
-                }
-            }
-            else
-                Defeated.Add("mechboss:0");
 
              if (NPC.downedMechBoss1)
             {
                 Defeated.Add("destroyer:1");
                     if (Defeated.Contains("destroyer:0"))
-                    {
                         Defeated.Remove("destroyer:0");
-                    }
             }
             else
                 Defeated.Add("destroyer:0");
@@ -169,9 +133,7 @@ namespace Extensions
             {
                 Defeated.Add("skeletronprime:1");
                 if (Defeated.Contains("skeletronprime:0"))
-                {
                     Defeated.Remove("skeletronprime:0");
-                }
             }
             else
                 Defeated.Add("skeletronprime:0");
@@ -180,35 +142,19 @@ namespace Extensions
             {
                 Defeated.Add("twins:1");
                 if (Defeated.Contains("twins:0"))
-                {
                     Defeated.Remove("twins:0");
-                }
             }
             else
                 Defeated.Add("twins:0");
 
-            string defeated = "";
-
-            foreach (string s in Defeated)
-            {
-                if (defeated.Length == 0)
-                {
-                    defeated += s;
-                }
-                else if (defeated.Length > 0)
-                {
-                    defeated += ", " + s;
-                }
-            }
+            string defeated = string.Join(", ", Defeated);
 
             List<string> Found = new List<string>();
             if (NPC.savedGoblin)
             {
                 Found.Add("savedgoblin:1");
                 if (Found.Contains("savedgoblin:0"))
-                {
                     Found.Remove("savedgoblin:0");
-                }
             }
             else
                 Found.Add("savedgoblin:0");
@@ -217,9 +163,7 @@ namespace Extensions
             {
                 Found.Add("savedwizard:1");
                 if (Found.Contains("savedwizard:0"))
-                {
                     Found.Remove("savedwizard:0");
-                }
             }
             else
                 Found.Add("savedwizard:0");
@@ -228,9 +172,7 @@ namespace Extensions
             {
                 Found.Add("savedmech:1");
                 if (Found.Contains("savedmech:0"))
-                {
                     Found.Remove("savedmech:0");
-                }
             }
             else
                 Found.Add("savedmech:0");
@@ -239,30 +181,15 @@ namespace Extensions
             {
                 Found.Add("savedstylist:1");
                 if (Found.Contains("savedstylist:0"))
-                {
                     Found.Remove("savedstylist:0");
-                }
             }
             else
                 Found.Add("savedstylist:0");
 
-            string found = "";
-
-            foreach (string s in Found)
-            {
-                if (found.Length == 0)
-                {
-                    found += s;
-                }
-                else if (found.Length > 0)
-                {
-                    found += ", " + s;
-                }
-            }
+            string found = string.Join(", ", Found);
  
 
             List<string> Mobs = new List<string>();
-            string mobs = "";
             for (int i = 0; i < Main.maxNPCTypes; i++)
             {
                 if (Main.npc[i].active)
@@ -274,22 +201,9 @@ namespace Extensions
                     }
                 }
             }
-
-            foreach (string s in Mobs)
-            {
-                if (mobs.Length == 0)
-                {
-                    mobs += s;
-                }
-                else if (mobs.Length > 0)
-                {
-                    mobs += ", " + s;
-                }
-            }
+            string mobs = string.Join(", ", Mobs);
 
             List<string> NPCs = new List<string>();
-            string npcs = "";
-
 
             for (int i = 0; i < Main.maxNPCTypes; i++)
             {
@@ -303,17 +217,7 @@ namespace Extensions
                 }
             }
 
-            foreach (string s in NPCs)
-            {
-                if (npcs.Length == 0)
-                {
-                    npcs += s;
-                }
-                else if (npcs.Length > 0)
-                {
-                    npcs += ", " + s;
-                }
-            }
+            string npcs = string.Join(", ", NPCs);
 
             double time = Main.time;
             if (!Main.dayTime)
@@ -332,13 +236,9 @@ namespace Extensions
             num4 = (double)((int)(num4 * 60.0));
             string text4 = string.Concat(num4);
             if (num4 < 10.0)
-            {
                 text4 = "0" + text4;
-            }
             if (num3 > 24)
-            {
                 num3 -= 12;
-            }
             string displaytime = string.Format("{0}:{1}", num3, text4);
 
 

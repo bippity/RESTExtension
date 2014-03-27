@@ -25,7 +25,7 @@ namespace Extensions
             return new RestObject()
             {
                 {"servername", TShock.Config.ServerName},
-                //{"servernickname", TShock.Config.ServerNickname},//doesn't exist?
+                {"worldname", Main.worldName},
                 {"password", TShock.Config.ServerPassword},
                 {"port", TShock.Config.ServerPort},
                 {"maxslots", TShock.Config.MaxSlots},
